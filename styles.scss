@@ -1,3 +1,5 @@
+$white-color: hsl(0, 0%, 100%);
+
 @mixin card-size {
   height: 157px;
   width: 286px;
@@ -7,15 +9,17 @@
 }
 
 * {
+  font-size: 18px;
   margin: 0;
   box-sizing: border-box;
   font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
 }
 
 body {
   height: 100vh;
   width: 100vw;
-  background-color: hsl(0, 0%, 100%);
+  background-color: $white-color;
 }
 
 .card-header-container {
@@ -29,6 +33,14 @@ body {
     background-image: url("images/bg-card-back.png");
     top: 50px;
     left: 70px;
+    .card-back-cvc {
+      position: absolute;
+      left: 230px;
+      top: 70px;
+      font-size: 0.6rem;
+      font-weight: normal;
+      color: $white-color;
+    }
   }
 
   .card-front-image-container {
