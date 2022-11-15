@@ -1,6 +1,6 @@
 @mixin card-size {
-  height: 180px;
-  width: 280px;
+  height: 157px;
+  width: 286px;
   background-size: contain;
   background-repeat: no-repeat;
   position: absolute;
@@ -21,20 +21,20 @@ body {
 .card-header-container {
   position: relative;
   width: 100%;
-  height: 250px;
+  height: 240px;
   background-image: url("images/bg-main-mobile.png");
 
   .card-back-image-container {
     @include card-size;
     background-image: url("images/bg-card-back.png");
     top: 50px;
-    left: 80px;
+    left: 70px;
   }
 
   .card-front-image-container {
     @include card-size;
     background-image: url("images/bg-card-front.png");
-    top: 137px;
+    top: 140px;
     left: 15px;
   }
 }
