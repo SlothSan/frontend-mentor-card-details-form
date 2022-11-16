@@ -1,4 +1,6 @@
 $white-color: hsl(0, 0%, 100%);
+$light-grayish-violet: hsl(270, 3%, 87%);
+$very-dark-grayish-violet: hsl(278, 68%, 11%);
 
 @mixin card-size {
   height: 157px;
@@ -90,6 +92,22 @@ body {
     padding: 20px;
     .card-form-flex-container {
       display: flex;
+    }
+    .card-form-label {
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      color: $very-dark-grayish-violet;
+    }
+    input {
+      width: 100%;
+      margin: 10px 0 20px 0;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid $light-grayish-violet;
+    }
+    input::placeholder {
+      color: $light-grayish-violet;
+      font-weight: bold;
     }
   }
 }
