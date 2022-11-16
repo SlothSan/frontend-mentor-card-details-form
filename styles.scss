@@ -42,6 +42,7 @@ body {
     background-image: url("images/bg-card-back.png");
     top: 50px;
     left: 70px;
+
     .card-back-cvc {
       position: absolute;
       left: 230px;
@@ -57,6 +58,7 @@ body {
     top: 140px;
     left: 15px;
     color: $white-color;
+
     .card-front-logo {
       position: absolute;
       width: 54px;
@@ -64,18 +66,25 @@ body {
       top: 15px;
       left: 20px;
     }
+
     .card-front-card-number {
       position: absolute;
       top: 90px;
       left: 20px;
       letter-spacing: 2.6px;
     }
+
     .card-front-card-expiry {
       position: absolute;
       top: 125px;
       left: 230px;
-      @include card-text;
+      display: flex;
+
+      p {
+        @include card-text
+      }
     }
+
     .card-front-card-holder-name {
       @include card-text;
       position: absolute;
@@ -87,18 +96,22 @@ body {
 
 .card-form-container {
   margin-top: 80px;
+
   .card-form {
     display: flex;
     flex-direction: column;
     padding: 20px;
+
     .card-form-flex-container {
       display: flex;
     }
+
     .card-form-label {
       font-size: 0.8rem;
       letter-spacing: 1px;
       color: $very-dark-grayish-violet;
     }
+
     input {
       width: 100%;
       margin: 10px 0 20px 0;
@@ -107,13 +120,16 @@ body {
       border: 1px solid $light-grayish-violet;
       color: $very-dark-grayish-violet;
     }
+
     input:focus {
       outline: 1px solid $very-dark-grayish-violet;
     }
+
     input::placeholder {
       color: $light-grayish-violet;
       font-weight: bold;
     }
+
     .card-form-confirm-button {
       margin-top: 5px;
       border-radius: 10px;
@@ -126,15 +142,26 @@ body {
     .card-form-flex-container {
       display: flex;
       width: 100%;
+      position: relative;
+
       .expiry-label {
         width: 100%;
         display: flex;
         flex-wrap: wrap;
       }
     }
+
     .card-form-card-expiry-month, .card-form-card-expiry-year {
       width: 80px;
       margin-right: 10px;
+    }
+
+    .error-message {
+      position: absolute;
+    }
+
+    .cvc-error {
+      top: 20px;
     }
   }
 }
