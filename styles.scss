@@ -8,6 +8,12 @@ $white-color: hsl(0, 0%, 100%);
   position: absolute;
 }
 
+@mixin card-text {
+  letter-spacing: 1px;
+  font-size: 0.6rem;
+  font-weight: lighter;
+}
+
 * {
   font-size: 18px;
   margin: 0;
@@ -37,9 +43,7 @@ body {
       position: absolute;
       left: 230px;
       top: 70px;
-      letter-spacing: 1px;
-      font-size: 0.6rem;
-      font-weight: normal;
+      @include card-text;
       color: $white-color;
     }
   }
@@ -49,5 +53,18 @@ body {
     background-image: url("images/bg-card-front.png");
     top: 140px;
     left: 15px;
+    color: $white-color;
+    .card-front-card-expiry {
+      position: absolute;
+      top: 125px;
+      left: 230px;
+      @include card-text;
+    }
+    .card-front-card-holder-name {
+      @include card-text;
+      position: absolute;
+      top: 125px;
+      left: 20px;
+    }
   }
 }
