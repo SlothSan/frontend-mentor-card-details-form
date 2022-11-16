@@ -81,3 +81,11 @@ body {
     }
   }
 }
+
+.card-form-container {
+  margin-top: 100px;
+  .card-form {
+    display: flex;
+    flex-direction: column;
+  }
+}
