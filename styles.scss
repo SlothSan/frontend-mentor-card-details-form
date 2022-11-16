@@ -54,6 +54,19 @@ body {
     top: 140px;
     left: 15px;
     color: $white-color;
+    .card-front-logo {
+      position: absolute;
+      width: 54px;
+      height: 30px;
+      top: 15px;
+      left: 20px;
+    }
+    .card-front-card-number {
+      position: absolute;
+      top: 90px;
+      left: 20px;
+      letter-spacing: 2.6px;
+    }
     .card-front-card-expiry {
       position: absolute;
       top: 125px;
