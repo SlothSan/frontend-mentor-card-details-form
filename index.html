@@ -25,7 +25,7 @@
   </section>
   <section class="card-form-container">
       <form class="card-form">
-        <label class="card-form-label">
+        <label class="card-form-label label-name">
           CARDHOLDER NAME
           <input class="card-form-card-name-input" type="text" placeholder="e.g. Jane Appleseed" required/>
         </label>
@@ -33,15 +33,19 @@
           CARD NUMBER
           <input class="card-form-card-number-input" type="number" placeholder="e.g. 1234 5678 9123 0000" required/>
         </label>
-        <label class="card-form-label">
-          EXP. DATE (MM/YY)
-          <input class="card-form-card-expiry-month" type="number" maxlength="2" placeholder="MM" required/>
-          <input class="card-form-card-expiry-year" type="number" maxlength="2" placeholder="MM" required/>
-        </label>
-        <label class="card-form-label">
-          CVC
-          <input class="card-form-card-cvc" type="number" maxlength="3" placeholder="e.g. 123" required/>
-        </label>
+        <div class="card-form-flex-container">
+          <label class="card-form-label">
+            EXP. DATE (MM/YY)
+            <div class="card-form-flex-container">
+              <input class="card-form-card-expiry-month" type="number" maxlength="2" placeholder="MM" required/>
+              <input class="card-form-card-expiry-year" type="number" maxlength="2" placeholder="YY" required/>
+            </div>
+          </label>
+          <label class="card-form-label">
+            CVC
+            <input class="card-form-card-cvc" type="number" maxlength="3" placeholder="e.g. 123" required/>
+          </label>
+        </div>
         <button class="card-form-confirm-button" type="submit">Confirm</button>
       </form>
   </section>
