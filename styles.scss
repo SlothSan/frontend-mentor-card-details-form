@@ -1,4 +1,5 @@
 $white-color: hsl(0, 0%, 100%);
+$dark-grayish-violet: hsl(279, 6%, 55%);
 $light-grayish-violet: hsl(270, 3%, 87%);
 $very-dark-grayish-violet: hsl(278, 68%, 11%);
 
@@ -105,9 +106,20 @@ body {
       border-radius: 5px;
       border: 1px solid $light-grayish-violet;
     }
+    input:focus {
+      outline: 1px solid $very-dark-grayish-violet;
+    }
     input::placeholder {
       color: $light-grayish-violet;
       font-weight: bold;
+    }
+    .card-form-confirm-button {
+      margin-top: 5px;
+      border-radius: 10px;
+      padding: 10px;
+      color: $white-color;
+      background-color: $very-dark-grayish-violet;
+      border: none;
     }
   }
 }
