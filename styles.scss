@@ -103,8 +103,9 @@ body {
       width: 100%;
       margin: 10px 0 20px 0;
       padding: 10px;
-      border-radius: 5px;
+      border-radius: 10px;
       border: 1px solid $light-grayish-violet;
+      color: $very-dark-grayish-violet;
     }
     input:focus {
       outline: 1px solid $very-dark-grayish-violet;
@@ -120,6 +121,20 @@ body {
       color: $white-color;
       background-color: $very-dark-grayish-violet;
       border: none;
+    }
+
+    .card-form-flex-container {
+      display: flex;
+      width: 100%;
+      .expiry-label {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
+    .card-form-card-expiry-month, .card-form-card-expiry-year {
+      width: 80px;
+      margin-right: 10px;
     }
   }
 }
