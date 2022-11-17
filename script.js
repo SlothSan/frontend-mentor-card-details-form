@@ -96,9 +96,18 @@ const formatMonth = (input) => {
     }
 }
 
-const hideForm = () => {
-    console.log('Hello World')
-    cardForm.classList.add('hidden');
+const checkInputMonth = (input, error) => {
+    if (input.value > 12) {
+        error.innerHTML = "Not a valid month."
+        input.classList.add('input-error');
+        return true;
+    } else {
+        return false;
+    }
+}
+
+const toggleForm = () => {
+    cardForm.classList.toggle('hidden');
 }
 
 const sanitizeAndSubmit = (event) => {
@@ -118,10 +127,10 @@ const sanitizeAndSubmit = (event) => {
     errorArray.push(checkInputEmpty(yearExpiryInput, expiryError));
     errorArray.push(checkInputType(yearExpiryInput, expiryError, characterCheck, "characters"));
     errorArray.push(checkInputLength(yearExpiryInput, 'Expiry year', expiryError, 2));
+    errorArray.push(checkInputMonth(monthExpiryInput, expiryError));
     errorArray.push(checkInputEmpty(cvcInput, cvcError));
     errorArray.push(checkInputType(cvcInput, cvcError, characterCheck, 'characters'));
     errorArray.push(checkInputLength(cvcInput, 'CVC', cvcError, 3));
-    console.log(errorArray);
     if (errorArray.includes(true)) {
         errorArray = null;
         return;
@@ -135,7 +144,7 @@ const sanitizeAndSubmit = (event) => {
         monthExpiryInput.classList.remove('input-error');
         yearExpiryInput.classList.remove('input-error');
         cvcInput.classList.remove('input-error');
-        hideForm()
+        toggleForm()
     }
     errorArray = null;
 }
