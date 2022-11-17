@@ -95,6 +95,10 @@ body {
   }
 }
 
+.hidden {
+  display: none !important;
+}
+
 .card-form-container {
   margin-top: 80px;
 
@@ -102,6 +106,7 @@ body {
     display: flex;
     flex-direction: column;
     padding: 20px;
+
 
     .card-form-flex-container {
       display: flex;

@@ -13,6 +13,7 @@ const nameError = document.getElementById('name-error');
 const numberError = document.getElementById('number-error');
 const expiryError = document.getElementById('expiry-error')
 const cvcError = document.getElementById('cvc-error');
+const cardForm = document.querySelector('.card-form');
 let currentYear2Digits = new Date().getFullYear().toString().substring(2, 4);
 
 const sanitizeInputLength = (input, output, length) => {
@@ -35,7 +36,6 @@ const inputHandlerCardNumber = (event) => {
 }
 
 const inputHandlerExpiryMonth = (event) => {
-    //TODO add a zero automatically if month < 10
     sanitizeInputLength(event.target.value, monthExpiryInput, 2);
     expiryMonthOnCardFront.innerHTML = event.target.value;
 }
@@ -78,6 +78,7 @@ const checkInputType = (input, error, toCheck, typeOfCheck) => {
 const checkInputLength = (input, inputType, error, length) => {
     if (input.value.length < length && input.value.length > 0) {
         error.innerHTML = `${inputType} is too short.`;
+        input.classList.add('input-error');
         return true;
     } else {
         return false;
@@ -87,11 +88,17 @@ const checkInputLength = (input, inputType, error, length) => {
 const formatMonth = (input) => {
     if (input.value > 0 && input.value < 10) {
         if (input.value.length !== 2) {
-            return input.value = "0" + input.value
+            input.value = "0" + input.value
+            expiryMonthOnCardFront.innerHTML = input.value
         }
     } else {
         return input.value;
     }
+}
+
+const hideForm = () => {
+    console.log('Hello World')
+    cardForm.classList.add('hidden');
 }
 
 const sanitizeAndSubmit = (event) => {
@@ -114,8 +121,10 @@ const sanitizeAndSubmit = (event) => {
     errorArray.push(checkInputEmpty(cvcInput, cvcError));
     errorArray.push(checkInputType(cvcInput, cvcError, characterCheck, 'characters'));
     errorArray.push(checkInputLength(cvcInput, 'CVC', cvcError, 3));
-    if (errorArray.includes(false)) {
-
+    console.log(errorArray);
+    if (errorArray.includes(true)) {
+        errorArray = null;
+        return;
     } else {
         nameError.innerHTML = "";
         numberError.innerHTML = "";
@@ -126,7 +135,9 @@ const sanitizeAndSubmit = (event) => {
         monthExpiryInput.classList.remove('input-error');
         yearExpiryInput.classList.remove('input-error');
         cvcInput.classList.remove('input-error');
+        hideForm()
     }
+    errorArray = null;
 }
 
 cvcInput.addEventListener('input', inputHandlerCVC);
@@ -136,5 +147,3 @@ cardNumberInput.addEventListener('input', inputHandlerCardNumber);
 cardNameInput.addEventListener('input', inputHandlerCardName);
 submitButton.addEventListener('click', sanitizeAndSubmit)
 
-//TODO Sanitize when input submitted!
-//Need to add 0 to Card Month on submit if length = 1 and < 9 after sanitizing
