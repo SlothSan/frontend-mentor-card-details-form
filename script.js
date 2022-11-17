@@ -24,6 +24,7 @@ const inputHandlerCardName = (event) => {
 }
 
 const inputHandlerCardNumber = (event) => {
+    sanitizeInputLength(event.target.value, cardNumberInput, 20)
     //TODO works but the spacing doesn't quite fit the design, return to this.
     let cardNumberSpaced = event.target.value.match(/.{1,4}/g).join('&nbsp;&nbsp;');
     if (cardNumberSpaced.length >= 52) {
@@ -48,8 +49,8 @@ const inputHandlerCVC = (event) => {
 }
 
 const checkInputEmpty = (input, error) => {
-    if (input.value.length === 0) {
-        error.innerHTML = "Can't be empty";
+    if (input.value === '') {
+        error.innerHTML = "Can't be empty.";
         input.classList.add('input-error');
         return true;
     } else {
@@ -61,39 +62,41 @@ const checkInputEmpty = (input, error) => {
 
 const checkInputType = (input, error, toCheck, typeOfCheck) => {
     if (toCheck.test(input.value)) {
-        error.innerHTML = `Can't contain ${typeOfCheck}`
+        error.innerHTML = `Can't contain ${typeOfCheck}.`
         input.classList.add('input-error');
         return true
     } else {
-        error.innerHTML = '';
-        input.classList.remove('input-error');
+        // error.innerHTML = '';
+        // input.classList.remove('input-error');
         return false
+    }
+}
+
+const checkInputLength = (input, inputType, error, length) => {
+    if (input.value.length > length) {
+        error.innerHTML = `${inputType} is too long.`
+        return true;
+    } else {
+        return false;
     }
 }
 
 const sanitizeAndSubmit = (event) => {
     event.preventDefault();
-    let successArray = [];
+    let errorArray = [];
     let numberCheck = /\d/;
-    successArray.push(checkInputType(cardNameInput, nameError, numberCheck, "number"));
-    successArray.push(checkInputEmpty(cardNameInput, nameError));
+    errorArray.push(checkInputEmpty(cardNameInput, nameError));
+    errorArray.push(checkInputType(cardNameInput, nameError, numberCheck, "number"));
+    errorArray.push(checkInputEmpty(cardNumberInput, numberError));
+    errorArray.push(checkInputLength(cardNumberInput, "Card number", numberError, 20))
+    if (errorArray.includes(false)) {
 
-    successArray.push(checkInputEmpty(cardNumberInput, numberError));
-    // let cardNameInputError = checkInputType(cardNameInput, nameError, numberCheck, "number");
-    // let cardNumberError = checkInputEmpty(cardNumberInput, numberError)
-    console.log(successArray)
-
-
-    // if (error === false) {
-    //     nameError.innerHTML = "";
-    //     numberError.innerHTML = "";
-    //     cardNameInput.classList.remove('input-error');
-    //     cardNumberInput.classList.remove('input-error');
-    // }
-
-    // if (success === true) {
-
-    // }
+    } else {
+        nameError.innerHTML = "";
+        numberError.innerHTML = "";
+        cardNameInput.classList.remove('input-error');
+        cardNumberInput.classList.remove('input-error');
+    }
 }
 
 cvcInput.addEventListener('input', inputHandlerCVC);
