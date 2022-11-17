@@ -15,6 +15,7 @@ const cvcError = document.getElementById('cvc-error');
 
 const sanitizeInputLength = (input, output, length) => {
     if (input >= length) {
+        console.log("Triggered")
         output.value = output.value.slice(0, length);
     }
 }
@@ -24,13 +25,13 @@ const inputHandlerCardName = (event) => {
 }
 
 const inputHandlerCardNumber = (event) => {
-    sanitizeInputLength(event.target.value, cardNumberInput, 20)
     //TODO works but the spacing doesn't quite fit the design, return to this.
-    let cardNumberSpaced = event.target.value.match(/.{1,4}/g).join('&nbsp;&nbsp;');
-    if (cardNumberSpaced.length >= 52) {
-        cardNumberSpaced = cardNumberSpaced.slice(0, 52);
-    }
-    cardNumberOnCardFront.innerHTML = cardNumberSpaced;
+    let target = event.target, position = target.selectionEnd, length = target.value.length;
+    target.value = target.value.replace(/[^\dA-Z]/g, '').replace(/(.{4})/g, '$1 ').trim();
+    target.selectionEnd = position += ((target.value.charAt(position - 1) === ' ' &&
+        target.value.charAt(length - 1) === ' ' && length !== target.value.length) ? 1 : 0);
+    sanitizeInputLength(length, cardNumberInput, 19)
+    cardNumberOnCardFront.innerHTML = target.value.replaceAll(' ', '&nbsp;&nbsp;');
 }
 
 const inputHandlerExpiryMonth = (event) => {
@@ -66,15 +67,13 @@ const checkInputType = (input, error, toCheck, typeOfCheck) => {
         input.classList.add('input-error');
         return true
     } else {
-        // error.innerHTML = '';
-        // input.classList.remove('input-error');
         return false
     }
 }
 
 const checkInputLength = (input, inputType, error, length) => {
-    if (input.value.length > length) {
-        error.innerHTML = `${inputType} is too long.`
+    if (input.value.length < length && input.value.length > 0) {
+        error.innerHTML = `${inputType} is too short.`
         return true;
     } else {
         return false;
@@ -84,11 +83,13 @@ const checkInputLength = (input, inputType, error, length) => {
 const sanitizeAndSubmit = (event) => {
     event.preventDefault();
     let errorArray = [];
+    let characterCheck = /[a-zA-Z]/;
     let numberCheck = /\d/;
     errorArray.push(checkInputEmpty(cardNameInput, nameError));
     errorArray.push(checkInputType(cardNameInput, nameError, numberCheck, "number"));
     errorArray.push(checkInputEmpty(cardNumberInput, numberError));
-    errorArray.push(checkInputLength(cardNumberInput, "Card number", numberError, 20))
+    errorArray.push(checkInputType(cardNumberInput, numberError, characterCheck, 'characters'))
+    errorArray.push(checkInputLength(cardNumberInput, "Card number", numberError, 16))
     if (errorArray.includes(false)) {
 
     } else {
