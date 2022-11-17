@@ -4,6 +4,10 @@ const expiryMonthOnCardFront = document.getElementById('card-front-expiry-month'
 const expiryYearOnCardFront = document.getElementById('card-front-expiry-year');
 const monthExpiryInput = document.getElementById('card-form-card-expiry-month');
 const yearExpiryInput = document.getElementById('card-form-card-expiry-year');
+const cardNumberOnCardFront = document.getElementById('card-front-card-number');
+const cardNumberInput = document.getElementById('card-form-card-number');
+const cardHolderNameOnCardFront = document.getElementById('');
+const cardHolderInput = document.getElementById('');
 const cvcError = document.getElementById('cvc-error');
 
 function sanitizeInputLength(input, output, length) {
@@ -12,6 +16,14 @@ function sanitizeInputLength(input, output, length) {
     }
 }
 
+const inputHandlerCardNumber = (event) => {
+    //TODO works but the spacing doesn't quite fit the design, return to this.
+    let cardNumberSpaced = event.target.value.match(/.{1,4}/g).join('&nbsp;&nbsp;');
+    if (cardNumberSpaced.length >= 52) {
+        cardNumberSpaced = cardNumberSpaced.slice(0, 52);
+    }
+    cardNumberOnCardFront.innerHTML = cardNumberSpaced;
+}
 
 const inputHandlerExpiryMonth = (event) => {
     sanitizeInputLength(event.target.value, monthExpiryInput, 2);
@@ -31,6 +43,7 @@ const inputHandlerCVC = (event) => {
 cvcInput.addEventListener('input', inputHandlerCVC);
 monthExpiryInput.addEventListener('input', inputHandlerExpiryMonth);
 yearExpiryInput.addEventListener('input', inputHandlerExpiryYear);
+cardNumberInput.addEventListener('input', inputHandlerCardNumber);
 
 
-//TODO Sanitize when input submitted !
+//TODO Sanitize when input submitted!
