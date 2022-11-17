@@ -6,14 +6,18 @@ const monthExpiryInput = document.getElementById('card-form-card-expiry-month');
 const yearExpiryInput = document.getElementById('card-form-card-expiry-year');
 const cardNumberOnCardFront = document.getElementById('card-front-card-number');
 const cardNumberInput = document.getElementById('card-form-card-number');
-const cardHolderNameOnCardFront = document.getElementById('');
-const cardHolderInput = document.getElementById('');
+const cardHolderNameOnCardFront = document.getElementById('card-front-card-name');
+const cardNameInput = document.getElementById('card-form-card-name');
 const cvcError = document.getElementById('cvc-error');
 
-function sanitizeInputLength(input, output, length) {
+const sanitizeInputLength = (input, output, length) => {
     if (input >= length) {
         output.value = output.value.slice(0, length);
     }
+}
+
+const inputHandlerCardName = (event) => {
+    cardHolderNameOnCardFront.innerHTML = event.target.value;
 }
 
 const inputHandlerCardNumber = (event) => {
@@ -44,6 +48,7 @@ cvcInput.addEventListener('input', inputHandlerCVC);
 monthExpiryInput.addEventListener('input', inputHandlerExpiryMonth);
 yearExpiryInput.addEventListener('input', inputHandlerExpiryYear);
 cardNumberInput.addEventListener('input', inputHandlerCardNumber);
+cardNameInput.addEventListener('input', inputHandlerCardName);
 
 
 //TODO Sanitize when input submitted!
