@@ -8,6 +8,8 @@ const cardNumberOnCardFront = document.getElementById('card-front-card-number');
 const cardNumberInput = document.getElementById('card-form-card-number');
 const cardHolderNameOnCardFront = document.getElementById('card-front-card-name');
 const cardNameInput = document.getElementById('card-form-card-name');
+const submitButton = document.getElementById('card-form-submit');
+const nameError = document.getElementById('name-error');
 const cvcError = document.getElementById('cvc-error');
 
 const sanitizeInputLength = (input, output, length) => {
@@ -44,11 +46,34 @@ const inputHandlerCVC = (event) => {
     cvcOnCardBack.innerHTML = event.target.value;
 }
 
+const sanitizeAndSubmit = (event) => {
+    event.preventDefault();
+    let success = true;
+    //Check if any fields are empty and display empty error messages if so.
+    if (cardNameInput.value.length === 0) {
+        success = false;
+        nameError.innerHTML = "Can't be empty"
+        cardNameInput.classList.add('input-error');
+    }
+    if (/\d/.test(cardNameInput.value)) {
+        success = false;
+        console.log("Does this work?")
+        nameError.innerHTML = "Can't contain number";
+        cardNameInput.classList.add('input-error');
+    }
+
+    if (success === true) {
+        nameError.innerHTML = "";
+        cardNameInput.classList.remove('input-error');
+    }
+}
+
 cvcInput.addEventListener('input', inputHandlerCVC);
 monthExpiryInput.addEventListener('input', inputHandlerExpiryMonth);
 yearExpiryInput.addEventListener('input', inputHandlerExpiryYear);
 cardNumberInput.addEventListener('input', inputHandlerCardNumber);
 cardNameInput.addEventListener('input', inputHandlerCardName);
-
+submitButton.addEventListener('click', sanitizeAndSubmit)
 
 //TODO Sanitize when input submitted!
+//Need to add 0 to Card Month on submit if length = 1 and < 9 after sanitizing

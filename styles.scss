@@ -2,6 +2,7 @@ $white-color: hsl(0, 0%, 100%);
 $dark-grayish-violet: hsl(279, 6%, 55%);
 $light-grayish-violet: hsl(270, 3%, 87%);
 $very-dark-grayish-violet: hsl(278, 68%, 11%);
+$red: hsl(0, 100%, 66%);
 
 @mixin card-size {
   height: 157px;
@@ -107,6 +108,7 @@ body {
     }
 
     .card-form-label {
+      position: relative;
       font-size: 0.8rem;
       letter-spacing: 1px;
       color: $very-dark-grayish-violet;
@@ -119,6 +121,10 @@ body {
       border-radius: 10px;
       border: 1px solid $light-grayish-violet;
       color: $very-dark-grayish-violet;
+    }
+
+    .input-error {
+      border: 1px solid $red !important;
     }
 
     input:focus {
@@ -156,8 +162,15 @@ body {
       margin-right: 10px;
     }
 
+    .label-container {
+      position: relative;
+    }
+
     .error-message {
+      color: $red;
+      font-size: 0.7rem;
       position: absolute;
+      top: 80px;
     }
 
     .cvc-error {

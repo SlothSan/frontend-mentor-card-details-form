@@ -29,33 +29,35 @@
     </section>
     <section class="card-form-container">
         <form class="card-form">
-            <label class="card-form-label label-name">
-                CARDHOLDER NAME
-                <input id="card-form-card-name" class="card-form-card-name-input" type="text"
-                       placeholder="e.g. Jane Appleseed" required/>
-            </label>
+            <div class="label-container">
+                <label class="card-form-label label-name">
+                    CARDHOLDER NAME
+                    <input id="card-form-card-name" class="card-form-card-name-input" type="text"
+                           placeholder="e.g. Jane Appleseed"/>
+                </label>
+                <p id="name-error" class="error-message"></p>
+            </div>
             <label class="card-form-label">
                 CARD NUMBER
                 <input id="card-form-card-number" class="card-form-card-number-input" type="number"
-                       placeholder="e.g. 1234 5678 9123 0000"
-                       required/>
+                       placeholder="e.g. 1234 5678 9123 0000"/>
             </label>
             <div class="card-form-flex-container">
                 <label class="card-form-label expiry-label">
                     EXP. DATE (MM/YY)
                     <input id="card-form-card-expiry-month" class="card-form-card-expiry-month" type="number"
-                           placeholder="MM" required/>
+                           placeholder="MM"/>
                     <input id="card-form-card-expiry-year" class="card-form-card-expiry-year" type="number"
-                           maxlength="2" placeholder="YY" required/>
+                           maxlength="2" placeholder="YY"/>
                 </label>
                 <label class="card-form-label">
                     CVC
                     <input id="card-form-card-cvc" class="card-form-card-cvc" type="number" placeholder="e.g. 123"
-                           required/>
+                    />
                 </label>
                 <p id="cvc-error" class="cvc-error error-message">Error</p>
             </div>
-            <button class="card-form-confirm-button" type="submit">Confirm</button>
+            <button id="card-form-submit" class="card-form-confirm-button" type="submit">Confirm</button>
         </form>
     </section>
 </main>
