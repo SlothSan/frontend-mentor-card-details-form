@@ -13,7 +13,8 @@ const nameError = document.getElementById('name-error');
 const numberError = document.getElementById('number-error');
 const expiryError = document.getElementById('expiry-error')
 const cvcError = document.getElementById('cvc-error');
-const cardForm = document.querySelector('.card-form');
+const cardForm = document.getElementById('card-form');
+const confirmationSection = document.getElementById('confirmation-container');
 let currentYear2Digits = new Date().getFullYear().toString().substring(2, 4);
 
 const sanitizeInputLength = (input, output, length) => {
@@ -108,6 +109,7 @@ const checkInputMonth = (input, error) => {
 
 const toggleForm = () => {
     cardForm.classList.toggle('hidden');
+    confirmationSection.classList.toggle('hidden');
 }
 
 const sanitizeAndSubmit = (event) => {
@@ -147,6 +149,15 @@ const sanitizeAndSubmit = (event) => {
         toggleForm()
     }
     errorArray = null;
+}
+
+const resetForm = () => {
+    cardNameInput.value = '';
+    cardNumberInput.value = '';
+    monthExpiryInput.value = '';
+    yearExpiryInput.value = '';
+    cvcInput.value = '';
+    toggleForm();
 }
 
 cvcInput.addEventListener('input', inputHandlerCVC);

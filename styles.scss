@@ -141,7 +141,8 @@ body {
       font-weight: bold;
     }
 
-    .card-form-confirm-button {
+    .card-form-confirm-button,
+    .confirmation-form-continue {
       margin-top: 5px;
       border-radius: 5px;
       padding: 10px;
@@ -168,6 +169,8 @@ body {
     }
 
     .label-container {
+      display: flex;
+      flex-direction: column;
       position: relative;
     }
 
@@ -175,11 +178,7 @@ body {
       color: $red;
       font-size: 0.7rem;
       position: absolute;
-      top: 80px;
-    }
-
-    .cvc-error {
-      top: 20px;
+      top: 75px;
     }
   }
 }
