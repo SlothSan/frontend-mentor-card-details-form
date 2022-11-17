@@ -25,7 +25,6 @@ const inputHandlerCardName = (event) => {
 }
 
 const inputHandlerCardNumber = (event) => {
-    //TODO works but the spacing doesn't quite fit the design, return to this.
     let target = event.target, position = target.selectionEnd, length = target.value.length;
     target.value = target.value.replace(/[^\dA-Z]/g, '').replace(/(.{4})/g, '$1 ').trim();
     target.selectionEnd = position += ((target.value.charAt(position - 1) === ' ' &&
@@ -63,7 +62,7 @@ const checkInputEmpty = (input, error) => {
 
 const checkInputType = (input, error, toCheck, typeOfCheck) => {
     if (toCheck.test(input.value)) {
-        error.innerHTML = `Can't contain ${typeOfCheck}.`
+        error.innerHTML = `Can't contain ${typeOfCheck}.`;
         input.classList.add('input-error');
         return true
     } else {
@@ -73,7 +72,7 @@ const checkInputType = (input, error, toCheck, typeOfCheck) => {
 
 const checkInputLength = (input, inputType, error, length) => {
     if (input.value.length < length && input.value.length > 0) {
-        error.innerHTML = `${inputType} is too short.`
+        error.innerHTML = `${inputType} is too short.`;
         return true;
     } else {
         return false;
@@ -88,15 +87,20 @@ const sanitizeAndSubmit = (event) => {
     errorArray.push(checkInputEmpty(cardNameInput, nameError));
     errorArray.push(checkInputType(cardNameInput, nameError, numberCheck, "number"));
     errorArray.push(checkInputEmpty(cardNumberInput, numberError));
-    errorArray.push(checkInputType(cardNumberInput, numberError, characterCheck, 'characters'))
-    errorArray.push(checkInputLength(cardNumberInput, "Card number", numberError, 16))
+    errorArray.push(checkInputType(cardNumberInput, numberError, characterCheck, 'characters'));
+    errorArray.push(checkInputLength(cardNumberInput, "Card number", numberError, 16));
+    errorArray.push(checkInputEmpty(cvcInput, cvcError));
+    errorArray.push(checkInputType(cvcInput, cvcError, characterCheck, 'characters'));
+    errorArray.push(checkInputLength(cvcInput, 'CVC', cvcError, 3));
     if (errorArray.includes(false)) {
 
     } else {
         nameError.innerHTML = "";
         numberError.innerHTML = "";
+        cvcError.innerHTML = "";
         cardNameInput.classList.remove('input-error');
         cardNumberInput.classList.remove('input-error');
+        cvcInput.classList.remove('input-error');
     }
 }
 

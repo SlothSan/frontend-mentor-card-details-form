@@ -53,12 +53,14 @@
                     <input id="card-form-card-expiry-year" class="card-form-card-expiry-year" type="number"
                            maxlength="2" placeholder="YY"/>
                 </label>
-                <label class="card-form-label">
-                    CVC
-                    <input id="card-form-card-cvc" class="card-form-card-cvc" type="number" placeholder="e.g. 123"
-                    />
-                </label>
-                <p id="cvc-error" class="cvc-error error-message">Error</p>
+                <div class="label-container">
+                    <label class="card-form-label">
+                        CVC
+                        <input id="card-form-card-cvc" class="card-form-card-cvc" type="number" placeholder="e.g. 123"
+                        />
+                    </label>
+                    <p id="cvc-error" class="error-message"></p>
+                </div>
             </div>
             <button id="card-form-submit" class="card-form-confirm-button" type="submit">Confirm</button>
         </form>
