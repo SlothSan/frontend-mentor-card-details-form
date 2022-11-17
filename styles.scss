@@ -41,14 +41,15 @@ body {
   .card-back-image-container {
     @include card-size;
     background-image: url("images/bg-card-back.png");
-    top: 50px;
+    top: 30px;
     left: 70px;
 
     .card-back-cvc {
       position: absolute;
       left: 230px;
-      top: 70px;
+      top: 72px;
       @include card-text;
+      font-size: 0.5rem;
       color: $white-color;
     }
   }
@@ -56,7 +57,7 @@ body {
   .card-front-image-container {
     @include card-size;
     background-image: url("images/bg-card-front.png");
-    top: 140px;
+    top: 120px;
     left: 15px;
     color: $white-color;
 
@@ -100,12 +101,12 @@ body {
 }
 
 .card-form-container {
-  margin-top: 80px;
+  margin-top: 65px;
 
   .card-form {
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 25px;
 
 
     .card-form-flex-container {
@@ -114,16 +115,17 @@ body {
 
     .card-form-label {
       position: relative;
-      font-size: 0.8rem;
-      letter-spacing: 1px;
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      font-weight: bold;
       color: $very-dark-grayish-violet;
     }
 
     input {
       width: 100%;
-      margin: 10px 0 20px 0;
+      margin: 10px 0 17px 0;
       padding: 10px;
-      border-radius: 10px;
+      border-radius: 7px;
       border: 1px solid $light-grayish-violet;
       color: $very-dark-grayish-violet;
     }
@@ -143,9 +145,9 @@ body {
 
     .card-form-confirm-button,
     .confirmation-form-continue {
-      margin-top: 5px;
-      border-radius: 5px;
-      padding: 10px;
+      margin-top: 15px;
+      border-radius: 7px;
+      padding: 15px;
       color: $white-color;
       background-color: $very-dark-grayish-violet;
       border: none;
@@ -165,7 +167,7 @@ body {
 
     .card-form-card-expiry-month, .card-form-card-expiry-year {
       width: 80px;
-      margin-right: 10px;
+      margin-right: 5px;
     }
 
     .label-container {
@@ -178,7 +180,20 @@ body {
       color: $red;
       font-size: 0.7rem;
       position: absolute;
-      top: 75px;
+      top: 70px;
+    }
+  }
+
+  .confirmation-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .confirmation-tick {
+      margin-top: 20px;
+      height: 80px;
+      width: 80px;
     }
   }
 }
