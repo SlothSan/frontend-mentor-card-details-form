@@ -15,6 +15,7 @@ const expiryError = document.getElementById('expiry-error')
 const cvcError = document.getElementById('cvc-error');
 const cardForm = document.getElementById('card-form');
 const confirmationSection = document.getElementById('confirmation-container');
+const confirmationContinueButton = document.getElementById('confirmation-form-continue');
 let currentYear2Digits = new Date().getFullYear().toString().substring(2, 4);
 
 const sanitizeInputLength = (input, output, length) => {
@@ -112,6 +113,20 @@ const toggleForm = () => {
     confirmationSection.classList.toggle('hidden');
 }
 
+const resetForm = () => {
+    cardNameInput.value = '';
+    cardNumberInput.value = '';
+    monthExpiryInput.value = '';
+    yearExpiryInput.value = '';
+    cvcInput.value = '';
+    cardNumberOnCardFront.innerHTML = "0000 0000 0000 0000";
+    cardHolderNameOnCardFront.innerHTML = "Jane Appleseed";
+    expiryMonthOnCardFront.innerHTML = "00";
+    expiryYearOnCardFront.innerHTML = "00";
+    cvcOnCardBack.innerHTML = "000";
+    toggleForm();
+}
+
 const sanitizeAndSubmit = (event) => {
     event.preventDefault();
     let errorArray = [];
@@ -151,14 +166,6 @@ const sanitizeAndSubmit = (event) => {
     errorArray = null;
 }
 
-const resetForm = () => {
-    cardNameInput.value = '';
-    cardNumberInput.value = '';
-    monthExpiryInput.value = '';
-    yearExpiryInput.value = '';
-    cvcInput.value = '';
-    toggleForm();
-}
 
 cvcInput.addEventListener('input', inputHandlerCVC);
 monthExpiryInput.addEventListener('input', inputHandlerExpiryMonth);
@@ -166,4 +173,5 @@ yearExpiryInput.addEventListener('input', inputHandlerExpiryYear);
 cardNumberInput.addEventListener('input', inputHandlerCardNumber);
 cardNameInput.addEventListener('input', inputHandlerCardName);
 submitButton.addEventListener('click', sanitizeAndSubmit)
+confirmationContinueButton.addEventListener('click', resetForm);
 
