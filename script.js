@@ -10,6 +10,7 @@ const cardHolderNameOnCardFront = document.getElementById('card-front-card-name'
 const cardNameInput = document.getElementById('card-form-card-name');
 const submitButton = document.getElementById('card-form-submit');
 const nameError = document.getElementById('name-error');
+const numberError = document.getElementById('number-error');
 const cvcError = document.getElementById('cvc-error');
 
 const sanitizeInputLength = (input, output, length) => {
@@ -46,26 +47,53 @@ const inputHandlerCVC = (event) => {
     cvcOnCardBack.innerHTML = event.target.value;
 }
 
+const checkInputEmpty = (input, error) => {
+    if (input.value.length === 0) {
+        error.innerHTML = "Can't be empty";
+        input.classList.add('input-error');
+        return true;
+    } else {
+        error.innerHTML = '';
+        input.classList.remove('input-error');
+        return false
+    }
+}
+
+const checkInputType = (input, error, toCheck, typeOfCheck) => {
+    if (toCheck.test(input.value)) {
+        error.innerHTML = `Can't contain ${typeOfCheck}`
+        input.classList.add('input-error');
+        return true
+    } else {
+        error.innerHTML = '';
+        input.classList.remove('input-error');
+        return false
+    }
+}
+
 const sanitizeAndSubmit = (event) => {
     event.preventDefault();
-    let success = true;
-    //Check if any fields are empty and display empty error messages if so.
-    if (cardNameInput.value.length === 0) {
-        success = false;
-        nameError.innerHTML = "Can't be empty"
-        cardNameInput.classList.add('input-error');
-    }
-    if (/\d/.test(cardNameInput.value)) {
-        success = false;
-        console.log("Does this work?")
-        nameError.innerHTML = "Can't contain number";
-        cardNameInput.classList.add('input-error');
-    }
+    let successArray = [];
+    let numberCheck = /\d/;
+    successArray.push(checkInputType(cardNameInput, nameError, numberCheck, "number"));
+    successArray.push(checkInputEmpty(cardNameInput, nameError));
 
-    if (success === true) {
-        nameError.innerHTML = "";
-        cardNameInput.classList.remove('input-error');
-    }
+    successArray.push(checkInputEmpty(cardNumberInput, numberError));
+    // let cardNameInputError = checkInputType(cardNameInput, nameError, numberCheck, "number");
+    // let cardNumberError = checkInputEmpty(cardNumberInput, numberError)
+    console.log(successArray)
+
+
+    // if (error === false) {
+    //     nameError.innerHTML = "";
+    //     numberError.innerHTML = "";
+    //     cardNameInput.classList.remove('input-error');
+    //     cardNumberInput.classList.remove('input-error');
+    // }
+
+    // if (success === true) {
+
+    // }
 }
 
 cvcInput.addEventListener('input', inputHandlerCVC);
