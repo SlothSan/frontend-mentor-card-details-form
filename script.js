@@ -11,11 +11,12 @@ const cardNameInput = document.getElementById('card-form-card-name');
 const submitButton = document.getElementById('card-form-submit');
 const nameError = document.getElementById('name-error');
 const numberError = document.getElementById('number-error');
+const expiryError = document.getElementById('expiry-error')
 const cvcError = document.getElementById('cvc-error');
+let currentYear2Digits = new Date().getFullYear().toString().substring(2, 4);
 
 const sanitizeInputLength = (input, output, length) => {
     if (input >= length) {
-        console.log("Triggered")
         output.value = output.value.slice(0, length);
     }
 }
@@ -34,13 +35,17 @@ const inputHandlerCardNumber = (event) => {
 }
 
 const inputHandlerExpiryMonth = (event) => {
+    //TODO add a zero automatically if month < 10
     sanitizeInputLength(event.target.value, monthExpiryInput, 2);
     expiryMonthOnCardFront.innerHTML = event.target.value;
 }
 
 const inputHandlerExpiryYear = (event) => {
+    if (event.target.value < parseInt(currentYear2Digits) && event.target.value.toString().length === 2) {
+        event.target.value = parseInt('');
+    }
     sanitizeInputLength(event.target.value, yearExpiryInput, 2);
-    expiryYearOnCardFront.innerHTML = event.target.value;
+    expiryYearOnCardFront.innerHTML = event.target.value.toString();
 }
 
 const inputHandlerCVC = (event) => {
@@ -50,7 +55,7 @@ const inputHandlerCVC = (event) => {
 
 const checkInputEmpty = (input, error) => {
     if (input.value === '') {
-        error.innerHTML = "Can't be empty.";
+        error.innerHTML = "Can't be blank.";
         input.classList.add('input-error');
         return true;
     } else {
@@ -79,16 +84,33 @@ const checkInputLength = (input, inputType, error, length) => {
     }
 }
 
+const formatMonth = (input) => {
+    if (input.value > 0 && input.value < 10) {
+        if (input.value.length !== 2) {
+            return input.value = "0" + input.value
+        }
+    } else {
+        return input.value;
+    }
+}
+
 const sanitizeAndSubmit = (event) => {
     event.preventDefault();
     let errorArray = [];
     let characterCheck = /[a-zA-Z]/;
     let numberCheck = /\d/;
+    formatMonth(monthExpiryInput);
     errorArray.push(checkInputEmpty(cardNameInput, nameError));
     errorArray.push(checkInputType(cardNameInput, nameError, numberCheck, "number"));
     errorArray.push(checkInputEmpty(cardNumberInput, numberError));
     errorArray.push(checkInputType(cardNumberInput, numberError, characterCheck, 'characters'));
     errorArray.push(checkInputLength(cardNumberInput, "Card number", numberError, 16));
+    errorArray.push(checkInputEmpty(monthExpiryInput, expiryError));
+    errorArray.push(checkInputType(monthExpiryInput, expiryError, characterCheck, "characters"));
+    errorArray.push(checkInputLength(monthExpiryInput, 'Expiry month', expiryError, 2));
+    errorArray.push(checkInputEmpty(yearExpiryInput, expiryError));
+    errorArray.push(checkInputType(yearExpiryInput, expiryError, characterCheck, "characters"));
+    errorArray.push(checkInputLength(yearExpiryInput, 'Expiry year', expiryError, 2));
     errorArray.push(checkInputEmpty(cvcInput, cvcError));
     errorArray.push(checkInputType(cvcInput, cvcError, characterCheck, 'characters'));
     errorArray.push(checkInputLength(cvcInput, 'CVC', cvcError, 3));
@@ -97,9 +119,12 @@ const sanitizeAndSubmit = (event) => {
     } else {
         nameError.innerHTML = "";
         numberError.innerHTML = "";
+        expiryError.innerHTML = "";
         cvcError.innerHTML = "";
         cardNameInput.classList.remove('input-error');
         cardNumberInput.classList.remove('input-error');
+        monthExpiryInput.classList.remove('input-error');
+        yearExpiryInput.classList.remove('input-error');
         cvcInput.classList.remove('input-error');
     }
 }
