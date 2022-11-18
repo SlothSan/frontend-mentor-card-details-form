@@ -282,8 +282,10 @@ body {
       }
 
       .card-front-card-number {
-        top: 100px;
-        left: 20px;
+        top: 140px;
+        left: 30px;
+        font-size: 1.5rem;
+        letter-spacing: 3.5px;
       }
 
       .card-front-card-holder-name {
@@ -291,6 +293,17 @@ body {
         top: 205px;
         font-size: 0.8rem;
         letter-spacing: 2px;
+      }
+
+      .card-front-card-expiry {
+        top: 205px;
+        letter-spacing: 2px;
+        left: 365px;
+
+        p {
+          font-size: 0.8rem;
+          letter-spacing: 2px;
+        }
       }
     }
     .card-form-container,
