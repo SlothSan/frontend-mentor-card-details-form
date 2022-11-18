@@ -107,7 +107,7 @@ body main {
   font-size: 0.65rem;
   letter-spacing: 2px;
   font-weight: bold;
-  color: hsl(278deg, 81%, 18%);
+  color: hsl(278deg, 68%, 11%);
 }
 .card-form-container .card-form input {
   width: 100%;
@@ -115,13 +115,13 @@ body main {
   padding: 10px;
   border-radius: 7px;
   border: 1px solid hsl(270deg, 3%, 87%);
-  color: hsl(278deg, 81%, 18%);
+  color: hsl(278deg, 68%, 11%);
 }
 .card-form-container .card-form .input-error {
   border: 1px solid hsl(0deg, 100%, 66%) !important;
 }
 .card-form-container .card-form input:focus {
-  outline: 2px solid hsl(278deg, 81%, 18%);
+  outline: 2px solid hsl(278deg, 68%, 11%);
 }
 .card-form-container .card-form input::placeholder {
   color: hsl(279deg, 6%, 55%);
@@ -133,7 +133,7 @@ body main {
   border-radius: 7px;
   padding: 15px;
   color: hsl(0deg, 0%, 100%);
-  background-color: hsl(278deg, 81%, 18%);
+  background-color: hsl(278deg, 68%, 11%);
   border: none;
   cursor: pointer;
 }
@@ -176,7 +176,7 @@ body main {
 .card-form-container .confirmation-container .thank-you-text {
   margin-top: 35px;
   font-size: 1.5rem;
-  color: hsl(278deg, 81%, 18%);
+  color: hsl(278deg, 68%, 11%);
   font-weight: bold;
   letter-spacing: 5px;
 }
@@ -190,7 +190,7 @@ body main {
   border-radius: 7px;
   padding: 15px;
   color: hsl(0deg, 0%, 100%);
-  background-color: hsl(278deg, 81%, 18%);
+  background-color: hsl(278deg, 68%, 11%);
   border: none;
   cursor: pointer;
   width: 100%;
