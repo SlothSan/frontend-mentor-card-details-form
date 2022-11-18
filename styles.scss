@@ -32,6 +32,7 @@ $red: hsl(0, 100%, 66%);
   color: $white-color;
   background-color: $very-dark-grayish-violet;
   border: none;
+  cursor: pointer;
 }
 
 * {
@@ -158,7 +159,7 @@ body {
     }
 
     input:focus {
-      outline: 1px solid $very-dark-grayish-violet;
+      outline: 2px solid $very-dark-grayish-violet;
     }
 
     input::placeholder {
@@ -186,7 +187,7 @@ body {
 
     .card-form-card-expiry-month, .card-form-card-expiry-year {
       width: 80px;
-      margin-right: 3px;
+      margin-right: 5px;
     }
 
     .label-container {
@@ -261,7 +262,6 @@ body {
       background-image: url("images/bg-main-desktop.png");
       background-repeat: no-repeat;
       background-size: cover;
-      //margin-right: 300px;
     }
     .card-back-image-container,
     .card-front-image-container {
@@ -319,7 +319,6 @@ body {
     .card-form-container,
     .confirmation-container {
       margin-top: 0;
-      width: auto;
       position: absolute;
       top: 265px;
 
@@ -329,6 +328,11 @@ body {
     }
     .card-form-container {
       left: 810px;
+      width: 381px;
+
+      .card-form {
+        width: 100%;
+      }
     }
 
     .confirmation-container {

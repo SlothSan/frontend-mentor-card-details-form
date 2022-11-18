@@ -121,7 +121,7 @@ body main {
   border: 1px solid hsl(0deg, 100%, 66%) !important;
 }
 .card-form-container .card-form input:focus {
-  outline: 1px solid hsl(278deg, 68%, 11%);
+  outline: 2px solid hsl(278deg, 68%, 11%);
 }
 .card-form-container .card-form input::placeholder {
   color: hsl(279deg, 6%, 55%);
@@ -135,6 +135,7 @@ body main {
   color: hsl(0deg, 0%, 100%);
   background-color: hsl(278deg, 68%, 11%);
   border: none;
+  cursor: pointer;
 }
 .card-form-container .card-form .card-form-flex-container {
   display: flex;
@@ -148,7 +149,7 @@ body main {
 }
 .card-form-container .card-form .card-form-card-expiry-month, .card-form-container .card-form .card-form-card-expiry-year {
   width: 80px;
-  margin-right: 3px;
+  margin-right: 5px;
 }
 .card-form-container .card-form .label-container {
   display: flex;
@@ -191,6 +192,7 @@ body main {
   color: hsl(0deg, 0%, 100%);
   background-color: hsl(278deg, 68%, 11%);
   border: none;
+  cursor: pointer;
   width: 100%;
 }
 
@@ -277,7 +279,6 @@ body main {
   .content-container .card-form-container,
 .content-container .confirmation-container {
     margin-top: 0;
-    width: auto;
     position: absolute;
     top: 265px;
   }
@@ -287,6 +288,10 @@ body main {
   }
   .content-container .card-form-container {
     left: 810px;
+    width: 381px;
+  }
+  .content-container .card-form-container .card-form {
+    width: 100%;
   }
   .content-container .confirmation-container {
     width: 430px;
