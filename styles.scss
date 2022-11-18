@@ -1,7 +1,7 @@
 $white-color: hsl(0, 0%, 100%);
 $dark-grayish-violet: hsl(279, 6%, 55%);
 $light-grayish-violet: hsl(270, 3%, 87%);
-$very-dark-grayish-violet: hsl(278, 68%, 11%);
+$very-dark-grayish-violet: hsl(278, 81%, 18%);
 $red: hsl(0, 100%, 66%);
 
 @mixin card-size {
@@ -32,6 +32,7 @@ $red: hsl(0, 100%, 66%);
   color: $white-color;
   background-color: $very-dark-grayish-violet;
   border: none;
+  cursor: pointer;
 }
 
 * {
@@ -46,6 +47,11 @@ body {
   height: 100vh;
   width: 100vw;
   background-color: $white-color;
+
+  main {
+    height: 100%;
+    width: 100%;
+  }
 }
 
 
@@ -153,11 +159,11 @@ body {
     }
 
     input:focus {
-      outline: 1px solid $very-dark-grayish-violet;
+      outline: 2px solid $very-dark-grayish-violet;
     }
 
     input::placeholder {
-      color: $light-grayish-violet;
+      color: $dark-grayish-violet;
       font-weight: bold;
     }
 
@@ -253,9 +259,9 @@ body {
       left: 0;
       height: 100%;
       width: 483px;
+      background-image: url("images/bg-main-desktop.png");
       background-repeat: no-repeat;
       background-size: cover;
-      //margin-right: 300px;
     }
     .card-back-image-container,
     .card-front-image-container {
@@ -312,9 +318,9 @@ body {
     }
     .card-form-container,
     .confirmation-container {
-      width: 400px;
-      position: relative;
-      top: 200px;
+      margin-top: 0;
+      position: absolute;
+      top: 265px;
 
       label {
         font-size: 0.75rem;
@@ -322,6 +328,16 @@ body {
     }
     .card-form-container {
       left: 810px;
+      width: 420px;
+
+      .card-form {
+        width: 100%;
+
+        .card-form-card-expiry-month,
+        .card-form-card-expiry-year {
+          margin-right: 10px;
+        }
+      }
     }
 
     .confirmation-container {
