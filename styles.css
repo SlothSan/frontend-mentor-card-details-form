@@ -277,7 +277,7 @@ body main {
   .content-container .card-form-container,
 .content-container .confirmation-container {
     margin-top: 0;
-    width: 400px;
+    width: auto;
     position: absolute;
     top: 265px;
   }
