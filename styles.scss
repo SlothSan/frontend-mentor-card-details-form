@@ -162,7 +162,7 @@ body {
     }
 
     input::placeholder {
-      color: $light-grayish-violet;
+      color: $dark-grayish-violet;
       font-weight: bold;
     }
 
@@ -186,7 +186,7 @@ body {
 
     .card-form-card-expiry-month, .card-form-card-expiry-year {
       width: 80px;
-      margin-right: 5px;
+      margin-right: 3px;
     }
 
     .label-container {

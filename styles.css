@@ -124,7 +124,7 @@ body main {
   outline: 1px solid hsl(278deg, 68%, 11%);
 }
 .card-form-container .card-form input::placeholder {
-  color: hsl(270deg, 3%, 87%);
+  color: hsl(279deg, 6%, 55%);
   font-weight: bold;
 }
 .card-form-container .card-form .card-form-confirm-button,
@@ -148,7 +148,7 @@ body main {
 }
 .card-form-container .card-form .card-form-card-expiry-month, .card-form-container .card-form .card-form-card-expiry-year {
   width: 80px;
-  margin-right: 5px;
+  margin-right: 3px;
 }
 .card-form-container .card-form .label-container {
   display: flex;
