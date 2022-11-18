@@ -25,6 +25,7 @@ const sanitizeInputLength = (input, output, length) => {
 }
 
 const inputHandlerCardName = (event) => {
+    event.target.value = event.target.value.toUpperCase()
     cardHolderNameOnCardFront.innerHTML = event.target.value;
 }
 
