@@ -49,6 +49,6 @@ dealing with the mobile and desktop designs.
 ## Author
 
 - Website - [Mike Oram](https://www.mike-oram.co.uk)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/SlothSan)
+- Frontend Mentor - [SlothSan](https://www.frontendmentor.io/profile/SlothSan)
 
 
