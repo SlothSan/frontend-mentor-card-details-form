@@ -259,7 +259,7 @@ body {
     }
     .card-back-image-container {
       top: 465px;
-      left: 160px;
+      left: 165px;
 
       .card-back-cvc {
         font-size: 0.8rem;
@@ -267,6 +267,18 @@ body {
         left: 355px;
         top: 112px;
         font-weight: 300;
+      }
+    }
+
+    .card-front-image-container {
+      top: 185px;
+      left: 55px;
+
+      .card-front-logo {
+        width: 87px;
+        height: 47px;
+        top: 28px;
+        left: 35px;
       }
     }
     .card-form-container,
