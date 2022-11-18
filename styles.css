@@ -297,6 +297,9 @@ body main {
 .content-container .card-form-container .card-form .card-form-card-expiry-year {
     margin-right: 10px;
   }
+  .content-container .card-form-container .card-form input {
+    margin: 15px 0 17px 0;
+  }
   .content-container .confirmation-container {
     width: 430px;
     left: 5px;
