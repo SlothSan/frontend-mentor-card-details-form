@@ -46,6 +46,11 @@ body {
   height: 100vh;
   width: 100vw;
   background-color: $white-color;
+
+  main {
+    height: 100%;
+    width: 100%;
+  }
 }
 
 
@@ -312,9 +317,10 @@ body {
     }
     .card-form-container,
     .confirmation-container {
+      margin-top: 0;
       width: 400px;
-      position: relative;
-      top: 200px;
+      position: absolute;
+      top: 265px;
 
       label {
         font-size: 0.75rem;

@@ -11,6 +11,10 @@ body {
   width: 100vw;
   background-color: hsl(0deg, 0%, 100%);
 }
+body main {
+  height: 100%;
+  width: 100%;
+}
 
 .card-header-container {
   position: relative;
@@ -271,9 +275,10 @@ body {
   }
   .content-container .card-form-container,
 .content-container .confirmation-container {
+    margin-top: 0;
     width: 400px;
-    position: relative;
-    top: 200px;
+    position: absolute;
+    top: 265px;
   }
   .content-container .card-form-container label,
 .content-container .confirmation-container label {
