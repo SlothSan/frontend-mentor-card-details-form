@@ -40,6 +40,17 @@ body {
   background-color: $white-color;
 }
 
+.content-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 375px;
+  height: 705px;
+  @media (min-height: 800px) and (max-width: 1000px) {
+    margin-top: calc(100vh / 10);
+  }
+}
+
 .card-header-container {
   position: relative;
   width: 100%;
