@@ -12,6 +12,14 @@ $red: hsl(0, 100%, 66%);
   position: absolute;
 }
 
+@mixin card-size-monitor {
+  height: 245px;
+  width: 447px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+}
+
 @mixin card-text {
   letter-spacing: 1px;
   font-size: 0.6rem;
@@ -40,29 +48,6 @@ body {
   background-color: $white-color;
 }
 
-.content-container {
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  width: 375px;
-  height: 705px;
-  @media (min-height: 800px) and (max-width: 1000px) {
-    margin-top: calc(100vh / 10);
-  }
-  @media (min-width: 1000px) {
-    margin: 0;
-    width: 100vh;
-    height: 100vh;
-    display: flex;
-    flex-direction: row;
-    .card-header-container {
-      height: 100%;
-      width: 483px;
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-  }
-}
 
 .card-header-container {
   position: relative;
@@ -245,3 +230,38 @@ body {
     }
   }
 }
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 375px;
+  height: 705px;
+  @media (min-height: 800px) and (max-width: 1000px) {
+    margin-top: calc(100vh / 10);
+  }
+  @media (min-width: 1000px) {
+    margin: 0;
+    width: 100vh;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    .card-header-container {
+      height: 100%;
+      width: 483px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      //margin-right: 300px;
+    }
+    .card-back-image-container,
+    .card-front-image-container {
+      @include card-size-monitor;
+    }
+    .card-form-container {
+      /*Come back to this spacing added for layout testing */
+      position: relative;
+      left: 400px;
+    }
+  }
+}
+
