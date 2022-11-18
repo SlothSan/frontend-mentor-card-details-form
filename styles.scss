@@ -247,6 +247,9 @@ body {
     display: flex;
     flex-direction: row;
     .card-header-container {
+      position: absolute;
+      top: 0;
+      left: 0;
       height: 100%;
       width: 483px;
       background-repeat: no-repeat;
@@ -259,7 +262,7 @@ body {
     }
     .card-back-image-container {
       top: 465px;
-      left: 165px;
+      left: 260px;
 
       .card-back-cvc {
         font-size: 0.8rem;
@@ -272,7 +275,7 @@ body {
 
     .card-front-image-container {
       top: 185px;
-      left: 55px;
+      left: 155px;
 
       .card-front-logo {
         width: 87px;
@@ -308,9 +311,9 @@ body {
     }
     .card-form-container,
     .confirmation-container {
-      /*Come back to this spacing added for layout testing */
+      width: 400px;
       position: relative;
-      left: 400px;
+      left: 900px;
     }
   }
 }
