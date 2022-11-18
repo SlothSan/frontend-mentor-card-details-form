@@ -1,7 +1,7 @@
 $white-color: hsl(0, 0%, 100%);
 $dark-grayish-violet: hsl(279, 6%, 55%);
 $light-grayish-violet: hsl(270, 3%, 87%);
-$very-dark-grayish-violet: hsl(278, 68%, 11%);
+$very-dark-grayish-violet: hsl(278, 81%, 18%);
 $red: hsl(0, 100%, 66%);
 
 @mixin card-size {
@@ -328,10 +328,15 @@ body {
     }
     .card-form-container {
       left: 810px;
-      width: 381px;
+      width: 420px;
 
       .card-form {
         width: 100%;
+
+        .card-form-card-expiry-month,
+        .card-form-card-expiry-year {
+          margin-right: 10px;
+        }
       }
     }
 
