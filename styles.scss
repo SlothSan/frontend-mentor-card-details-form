@@ -313,7 +313,20 @@ body {
     .confirmation-container {
       width: 400px;
       position: relative;
-      left: 900px;
+      top: 200px;
+
+      label {
+        font-size: 0.75rem;
+      }
+    }
+    .card-form-container {
+      left: 810px;
+    }
+
+    .confirmation-container {
+      width: 430px;
+      left: 5px;
+      top: 0;
     }
   }
 }
