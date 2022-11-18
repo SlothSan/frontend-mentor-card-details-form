@@ -49,6 +49,19 @@ body {
   @media (min-height: 800px) and (max-width: 1000px) {
     margin-top: calc(100vh / 10);
   }
+  @media (min-width: 1000px) {
+    margin: 0;
+    width: 100vh;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    .card-header-container {
+      height: 100%;
+      width: 483px;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
 }
 
 .card-header-container {
