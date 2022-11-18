@@ -280,7 +280,7 @@ body main {
 .content-container .confirmation-container {
     margin-top: 0;
     position: absolute;
-    top: 265px;
+    top: 255px;
   }
   .content-container .card-form-container label,
 .content-container .confirmation-container label {
@@ -296,9 +296,6 @@ body main {
   .content-container .card-form-container .card-form .card-form-card-expiry-month,
 .content-container .card-form-container .card-form .card-form-card-expiry-year {
     margin-right: 10px;
-  }
-  .content-container .card-form-container .card-form input {
-    margin: 15px 0 17px 0;
   }
   .content-container .confirmation-container {
     width: 430px;
