@@ -257,7 +257,20 @@ body {
     .card-front-image-container {
       @include card-size-monitor;
     }
-    .card-form-container {
+    .card-back-image-container {
+      top: 465px;
+      left: 160px;
+
+      .card-back-cvc {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+        left: 355px;
+        top: 112px;
+        font-weight: 300;
+      }
+    }
+    .card-form-container,
+    .confirmation-container {
       /*Come back to this spacing added for layout testing */
       position: relative;
       left: 400px;
